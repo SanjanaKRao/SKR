@@ -5,24 +5,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Fredericka+the+Great&display=swap:wght@300&display=swap');
+        body {
+            background-color: #f5f5dc; /* Beige background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            width: 100%;
+            background-color: #000000; /* Jet black background */
+            color: #fff;
+            padding: 30px 0; /* Increased padding for a wider header */
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        main{
+            max-width: 1200px;
+            width: 100%;
+            background-color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-top: 20px;
+            text-align: center; /* Center align main content */
+        }
+        .logo {
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+      
+        .logo:before {
+            content: "";
+            display: block;
+            width: 2px;
+            height: 50px; /* Longer line */
+            background-color:  white; 
+            margin-right: 10px;
+        }
+        .logo span {
+            font-size: 40px;
+            color:  white;
+        }
+        .work {
+            color:  #d67f2e;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .my-work-section {
+            text-align: center;
+            margin: auto; /* Centering the section */
+            margin-top: 40px; /* Adjust as needed */
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #ccc; /* Line between items */
+        }
+        .my-work-section h1 {
+            font-family: 'Gloock', serif; /* Gloock font */
+            font-size: 45px;
+            border-bottom: 1px solid #ccc; /* Line between items */
+        }
+        .my-work-section p {
+            font-family: 'Merriweather', serif; /* Merriweather font */
+            font-size: 18px;
+        }
+        .work-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #ccc; /* Line between items */
+        }
+        .work-item h2{
+           font-size: 30px;
+           font-family: 'Fredericka the Great', cursive;
+        }
+        .work-item .text-content {
+            flex: 1;
+            text-align: left;
+            padding-right: 20px;
+        }
+        .work-item .image-content {
+            flex: 1;
+            text-align: right;
+            width: 400px;
+            height: 250px;
+        }
+        .work-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .work-item .github-icon {
+            max-width: 7%;
+            height: auto;
+        }
+        a {
+         text-decoration: none;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
-            <div href="#" class="logo">
+            <a href="index.html" class="logo">
                 <span>SKR</span>
-            </div>
+            </a>
             <ul>
                 <li><a href="experience.html">Experience</a></li>
-                <li><a href="work.html">Work</a></li>
+                <li><a href="work.html" class="work">Work</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Work</h1>
-        <p>This is the work page.</p>
+        <section class="my-work-section">
+            <h1>Things I am proud of</h1>
+            <div class="work-content">
+                <p>Since I am constantly fiddling with something, this page solely reflects my best/latest accomplishments(highly subjective)</p>
+            </div>
+        </section>
+        <section class="my-work-section">
+            <div class="work-item">
+                <div class="text-content">
+                    <h2>Project SKR</h2>
+                    <p>Built the website you are currently browsing, in an effort to build my brand and brush up on my UI skills. It is currently being hosted by Github Pages and is rerouted to my domain
+                         <a href="http://sanjanakrao.com">sanjanakrao.com</p>
+                                    <!-- GitHub icon with link -->
+                    <a href="https://github.com/SanjanaKRao/SKR" target="_blank" rel="noopener noreferrer">
+                     <img class="github-icon" src="images/github.png" alt="https://github.com/SanjanaKRao/SKR"></a>
+                </div>
+                <div class="image-content">
+                    <img src="images/website.png" alt="Project XYZ Image">
+                </div>
+            </div>
+            <!-- Add more work items as needed -->
+        </section>
     </main>
 </body>
 </html>
