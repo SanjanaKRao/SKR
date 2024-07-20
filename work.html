@@ -140,6 +140,22 @@
         a {
          text-decoration: none;
         }
+        footer {
+            width: 100%;
+            background-color: #000000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            display: block;
+        }
+        footer a {
+            color: #d67f2e;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -180,5 +196,18 @@
             <!-- Add more work items as needed -->
         </section>
     </main>
+    <footer>
+        <p>If you like my work, consider <a href="https://www.buymeacoffee.com/sanjanakrao" target="_blank">buying me a coffee</a>!</p>
+    </footer>
+    <script>
+        window.addEventListener('scroll', function() {
+            var footer = document.querySelector('footer');
+            if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+                footer.style.display = 'block';
+            } else {
+                footer.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
