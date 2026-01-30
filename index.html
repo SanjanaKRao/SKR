@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="/images/SKR.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Cormorant+Garamond&family=Merriweather:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Fredericka+the+Great&display=swap');
         body {
             background-color: #f5f5dc; /* Beige background */
             margin: 0;
@@ -17,7 +17,7 @@
             align-items: center;
         }
         header {
-            font-size: 17px;    
+            font-size: 17px;
             width: 100%;
             background-color: #000000; /* Jet black background */
             color: #fff;
@@ -32,8 +32,141 @@
             padding: 0 20px;
         }
         main {
-            max-width: 1200px;
             width: 100%;
+            position: relative;
+        }
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+            z-index: -1;
+        }
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .scroll-space {
+            height: 3000px; /* fallback, overridden by JS */
+        }
+        .scroll-warning {
+            position: fixed;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            transition: opacity 0.5s ease;
+        }
+        .scroll-warning p {
+            font-family: 'Gloock', serif;
+            font-size: 24px;
+            color: #fff;
+            text-shadow: 0 0 10px #d67f2e, 0 0 20px #d67f2e;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .scroll-warning.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .download-cv {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 30px;
+            background-color: #d67f2e;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Gloock', serif;
+            font-size: 14px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease, background-color 0.3s ease;
+            transition-delay: 1.2s;
+        }
+        .download-cv.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .download-cv:hover {
+            background-color: #b8691f;
+        }
+        .intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+            z-index: 1;
+            gap: 40px;
+        }
+        .intro-image img {
+            width: 140vw;
+            height: 140vh;
+            object-fit: contain;
+        }
+        .intro-text {
+            max-width: 700px;
+            position: absolute;
+            top: 60%;
+            text-align: center;
+        }
+        .intro-text h1,
+        .intro-text p {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .intro-text h1.visible,
+        .intro-text p.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .intro-text .subtext {
+            transition-delay: 0.4s;
+        }
+        .intro-text .about,
+        .intro-text .about-hashtag {
+            transition-delay: 0.8s;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .intro-overlay h1 {
+            font-family: 'Gloock', serif;
+            font-size: 45px;
+            color: #fff;
+            text-shadow: 0 0 10px #d67f2e, 0 0 20px #d67f2e, 0 0 40px #d67f2e, 0 0 80px #d67f2e;
+            margin-bottom: 20px;
+        }
+        .intro-overlay p {
+            font-family: 'Gloock', serif;
+            font-size: 20px;
+            color: #fff;
+        }
+        .intro-overlay p.subtext,p.about {
+            text-shadow: 0 0 10px #d67f2e, 0 0 20px #d67f2e, 0 0 40px #d67f2e;
+        }
+        .intro-overlay p.about-hashtag,
+        .intro-overlay p.about {
+            text-shadow: none;
         }
         .logo {
             font-weight: bold;
@@ -41,13 +174,15 @@
             display: flex;
             align-items: center;
             font-family: 'Gloock', serif; /* Gloock font */
+            font-size: 40px;
         }
+
         .logo:before {
             content: "";
             display: block;
             width: 2px;
             height: 50px; /* Longer line */
-            background-color:  white; 
+            background-color:  white;
             margin-right: 10px;
         }
         .logo span {
@@ -67,108 +202,10 @@
             color: #fff;
             text-decoration: none;
             font-weight: bold;
-        }
-        .container {
-            display: flex;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            max-width: 1200px;
-            width: 100%;
-            margin-top: 20px;
-        }
-        .image {
-            flex: 1;
-            background-color: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: cover;
-        }
-        .content {
-            flex: 1;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .content h1 {
-            margin: 0;
-            font-size: 45px; /* Increased font size */
-            font-family: 'Gloock', serif; /* Gloock font */
-            color: #333;
-        }
-        .content .subtext {
-            font-size: 22px;
-            color: #666;
-            font-family: 'Cormorant Garamond', serif; /* Cormorant Garamond Light font */
-        }
-        #about-me {
-            background-color: #fff;
-            padding: 60px 20px;
-            margin-top: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 800px;
-            width: 100%;
-        }
-        #about-me h1 {
-            font-size: 35px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .about-content {
-            line-height: 1.8;
-            font-size: 15px;
-            color: #666;
-            text-align: left;
-        }
-        .about-content p {
-            margin-bottom: 20px;
-            font-family: 'Merriweather', serif; /* Merriweather font */
-        }
-        .resume {
-            margin-top: 30px;
-        }
-        .resume a {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: #d67f2e;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            border: 2px solid transparent; /* Initial border */
-        }
-        .resume a:hover {
-            background-color: white;
-            color: #d67f2e;
-            border-color: #d67f2e;
+            font-size: 17px;
         }
         a {
          text-decoration: none;
-        }
-        footer {
-            width: 100%;
-            background-color: #000000;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            display: none;
-        }
-        footer a {
-            color: #d67f2e;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        footer a:hover {
-            color: #fff;
         }
     </style>
 </head>
@@ -179,44 +216,95 @@
                 <span>SKR</span>
             </a>
             <ul>
+                <li><a href="about.html">About</a></li>
                 <li><a href="experience.html">Experience</a></li>
                 <li><a href="work.html">Work</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div class="container">
-            <div class="image">
-                <img src="images/sanjanakrao.png" alt="Thats supposed to be an image of me - Sanjana K Rao">
+        <div class="video-container">
+            <video id="scroll-video" preload="auto" playsinline>
+                <source src="Fire6.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="scroll-warning" id="scroll-warning">
+            <p>Scroll at your own risk</p>
+        </div>
+        <div class="scroll-space"></div>
+        <div class="intro-overlay" id="intro-overlay">
+            <div class="intro-image">
+                <img src="images/lioness_landscape.png" alt="Sanjana K Rao">
             </div>
-            <div class="content">
-                <h1>Hey! I'm Sanjana K Rao.
-                    I am a Software developer based in India.</h1>
-                <p class="subtext">I can build your product quickly and at scale. If you're looking for a passionate developer to take your project to the next level, I'm your girl.</p>
+            <div class="intro-text">
+                <h1>Welcome</h1>
+                <p class="subtext">I'm Sanjana. I love tinkering and often get lost in my code. If you're looking for someone to make your idea actually work you're at the right site.</p>
+                <p class="about-hashtag">• JAVA • PYTHON • SQL • BADMINTON • CLASSICAL ARTS</p>
+                <p class="about">Hit me up if you want to talk about any of the above</p>
+                <a href="SanjanaResume.pdf" download class="download-cv" id="download-cv">Download CV</a>
             </div>
         </div>
     </main>
-    <section id="about-me">
-        <h1>About Me</h1>
-        <div class="about-content">
-            <p>I am an experienced software developer with 4 years of multi-project expertise in Java, Python, and SQL. I have shown innovation and consistency in delivering on projects. I take up side projects that are not part of my primary work as I am always on a quest to learn more and be a better developer than I was yesterday. On a more personal note, I take a keen interest in Indian art forms and love a good game of badminton. So, if any of the above interested you, hit me up!</p>
-        </div>
-        <div class="resume">
-            <a href="SanjanaResume.pdf" download>Download CV</a>
-        </div>
-    </section>
-    <footer>
-        <p>If you like my work, consider <a href="https://www.buymeacoffee.com/sanjanakrao" target="_blank">buying me a coffee</a>!</p>
-    </footer>
     <script>
+        const video = document.getElementById('scroll-video');
+        let audioUnlocked = false;
+        let scrollTimeout;
+
+        video.addEventListener('loadedmetadata', function() {
+            const scrollSpace = document.querySelector('.scroll-space');
+            scrollSpace.style.height = (video.duration * 200) + 'px';
+            video.currentTime = 0;
+        });
+
+        // Unlock audio on first click anywhere
+        document.addEventListener('click', function() {
+            video.muted = false;
+            video.play().then(function() {
+                video.pause();
+                audioUnlocked = true;
+            });
+        }, { once: true });
+
+        const scrollWarning = document.getElementById('scroll-warning');
+        const downloadCV = document.getElementById('download-cv');
+        let warningHidden = false;
+
         window.addEventListener('scroll', function() {
-            var footer = document.querySelector('footer');
-            if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
-                footer.style.display = 'block';
+            if (!video.duration) return;
+
+            // Hide warning on first scroll
+            if (!warningHidden) {
+                scrollWarning.classList.add('hidden');
+                warningHidden = true;
+            }
+
+            const scrollTop = window.scrollY;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollFraction = scrollTop / maxScroll;
+            video.currentTime = scrollFraction * video.duration;
+
+            const introOverlay = document.getElementById('intro-overlay');
+            const h1 = introOverlay.querySelector('h1');
+            const paragraphs = introOverlay.querySelectorAll('p');
+            if (scrollFraction >= 0.8) {
+                introOverlay.style.opacity = 1;
+                h1.classList.add('visible');
+                paragraphs.forEach(function(p) { p.classList.add('visible'); });
+                downloadCV.classList.add('visible');
             } else {
-                footer.style.display = 'block';
+                introOverlay.style.opacity = 0;
+                h1.classList.remove('visible');
+                downloadCV.classList.remove('visible');
+                paragraphs.forEach(function(p) { p.classList.remove('visible'); });
+            }
+
+            if (audioUnlocked) {
+                video.play();
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(function() {
+                    video.pause();
+                }, 150);
             }
         });
     </script>
