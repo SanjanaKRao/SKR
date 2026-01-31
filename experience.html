@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="/images/SKR.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience</title>
@@ -140,6 +141,58 @@
         .company-logo {
             width: 120px; /* Adjust width as needed */
             height: 50px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 0;
+            }
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 5px 10px;
+            }
+            nav ul li a {
+                font-size: 14px;
+            }
+            .logo {
+                font-size: 30px;
+            }
+            .logo span {
+                font-size: 30px;
+            }
+            .logo:before {
+                height: 35px;
+            }
+            .experience-item {
+                flex-direction: column;
+            }
+            .experience-item .left {
+                padding: 15px;
+            }
+            .experience-item .right {
+                padding: 15px;
+            }
+            .experience-item h2 {
+                font-size: 1.3em;
+            }
+            .experience-item h3 {
+                font-size: 1.1em;
+            }
+            .experience-item ul li {
+                font-size: 14px;
+            }
+            .company-logo {
+                width: 80px;
+                height: 35px;
+            }
         }
     </style>
 </head>

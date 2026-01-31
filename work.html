@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="/images/SKR.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work</title>
@@ -160,6 +161,61 @@
         }
         footer a:hover {
             color: #fff;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 0;
+            }
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 5px 10px;
+            }
+            nav ul li a {
+                font-size: 14px;
+            }
+            .logo {
+                font-size: 30px;
+            }
+            .logo span {
+                font-size: 30px;
+            }
+            .logo:before {
+                height: 35px;
+            }
+            main {
+                padding: 15px;
+                margin-top: 20px;
+            }
+            .work-section {
+                flex-direction: column;
+            }
+            .work-section .left {
+                padding: 15px;
+            }
+            .work-section .right {
+                padding: 15px;
+            }
+            .work-section h1 {
+                font-size: 1.8em;
+            }
+            .work-section h2 {
+                font-size: 1.3em;
+            }
+            .work-section p {
+                font-size: 14px;
+            }
+            .work-section img {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
