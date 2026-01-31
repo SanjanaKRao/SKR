@@ -36,7 +36,7 @@
             width: 100%;
             position: relative;
         }
-        .video-container {
+        .frame-container {
             position: fixed;
             top: 0;
             left: 0;
@@ -48,13 +48,13 @@
             background-color: #000;
             z-index: -1;
         }
-        .video-container video {
+        .frame-container img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
         .scroll-space {
-            height: 3000px; /* fallback, overridden by JS */
+            height: 2880px; /* 192 frames * 15px, overridden by JS */
         }
         .scroll-warning {
             position: fixed;
@@ -236,13 +236,6 @@
             .logo:before {
                 height: 35px;
             }
-            .scroll-warning p {
-                font-size: 18px;
-            }
-            .intro-text {
-                top: 50%;
-                padding: 0 20px;
-            }
             .intro-overlay h1 {
                 font-size: 28px;
             }
@@ -251,10 +244,6 @@
             }
             .intro-text .about {
                 font-size: 14px;
-            }
-            .intro-image img {
-                width: 200vw;
-                height: 200vh;
             }
             .download-cv {
                 padding: 10px 20px;
@@ -278,10 +267,8 @@
         </nav>
     </header>
     <main>
-        <div class="video-container">
-            <video id="scroll-video" preload="auto" playsinline>
-                <source src="Fire6.mp4" type="video/mp4">
-            </video>
+        <div class="frame-container">
+            <img id="scroll-frame" src="images/FireJPEGsHQ/frame-001.jpg" alt="Fire animation">
         </div>
         <div class="scroll-warning" id="scroll-warning">
             <p>Scroll at your own risk</p>
@@ -300,32 +287,31 @@
         </div>
     </main>
     <script>
-        const video = document.getElementById('scroll-video');
-        let audioUnlocked = false;
-        let scrollTimeout;
+        const totalFrames = 192;
+        const frameImg = document.getElementById('scroll-frame');
+        const frames = [];
+        let framesLoaded = 0;
 
-        video.addEventListener('loadedmetadata', function() {
-            const scrollSpace = document.querySelector('.scroll-space');
-            scrollSpace.style.height = (video.duration * 200) + 'px';
-            video.currentTime = 0;
-        });
+        // Preload all frames
+        for (let i = 1; i <= totalFrames; i++) {
+            const img = new Image();
+            const frameNum = String(i).padStart(3, '0');
+            img.src = 'images/FireJPEGsHQ/frame-' + frameNum + '.jpg';
+            img.onload = function() {
+                framesLoaded++;
+            };
+            frames.push(img);
+        }
 
-        // Unlock audio on first click anywhere
-        document.addEventListener('click', function() {
-            video.muted = false;
-            video.play().then(function() {
-                video.pause();
-                audioUnlocked = true;
-            });
-        }, { once: true });
+        // Set scroll space height (adjust multiplier for scroll speed)
+        const scrollSpace = document.querySelector('.scroll-space');
+        scrollSpace.style.height = (totalFrames * 15) + 'px';
 
         const scrollWarning = document.getElementById('scroll-warning');
         const downloadCV = document.getElementById('download-cv');
         let warningHidden = false;
 
         window.addEventListener('scroll', function() {
-            if (!video.duration) return;
-
             // Hide warning on first scroll
             if (!warningHidden) {
                 scrollWarning.classList.add('hidden');
@@ -335,7 +321,14 @@
             const scrollTop = window.scrollY;
             const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
             const scrollFraction = scrollTop / maxScroll;
-            video.currentTime = scrollFraction * video.duration;
+
+            // Calculate which frame to show
+            const frameIndex = Math.min(Math.floor(scrollFraction * totalFrames), totalFrames - 1);
+
+            // Update the displayed frame
+            if (frames[frameIndex] && frames[frameIndex].complete) {
+                frameImg.src = frames[frameIndex].src;
+            }
 
             const introOverlay = document.getElementById('intro-overlay');
             const h1 = introOverlay.querySelector('h1');
@@ -350,14 +343,6 @@
                 h1.classList.remove('visible');
                 downloadCV.classList.remove('visible');
                 paragraphs.forEach(function(p) { p.classList.remove('visible'); });
-            }
-
-            if (audioUnlocked) {
-                video.play();
-                clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(function() {
-                    video.pause();
-                }, 150);
             }
         });
     </script>
