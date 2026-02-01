@@ -242,24 +242,34 @@
             .logo:before {
                 height: 35px;
             }
+
             /* Portrait mode optimization */
             .frame-container {
-                aspect-ratio: 3 / 4;   /* try 4/5, 3/4, etc */
+                aspect-ratio: 4 / 5; /* slightly taller */
                 overflow: hidden;
             }
+
             .frame-container img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                object-position: 50% 20%;
+                object-position: 50% 15%;
+                transform: scale(0.9);
+            }
+            .intro-image {
+                position: relative;
+                left: 50%;
+                right: 50%;
+                margin-left: -50vw;
+                margin-right: -50vw;
             }
             .intro-image img {
                 width: 100%;
                 height: 100vh;
                 object-fit: cover;
                 object-position: center;
-                margin: 0;
-                padding : 0;
+                margin-left: -50vw;
+                margin-right: -50vw;
             }
             .intro-image .desktop-img {
                 display: none;
