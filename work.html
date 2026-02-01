@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="icon" href="/images/SKR.png" type="image/x-icon">
     <meta charset="UTF-8">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Fredericka+the+Great&display=swap:wght@300&display=swap');
+
         body {
             background-color: #0a0a0a;
             margin: 0;
@@ -17,13 +19,17 @@
             flex-direction: column;
             align-items: center;
         }
+
         header {
             font-size: 17px;
             width: 100%;
-            background-color: #000000; /* Jet black background */
+            background-color: #000000;
+            /* Jet black background */
             color: #fff;
-            padding: 30px 0; /* Increased padding for a wider header */
+            padding: 30px 0;
+            /* Increased padding for a wider header */
         }
+
         nav {
             display: flex;
             justify-content: space-between;
@@ -32,22 +38,26 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
             display: flex;
         }
+
         nav ul li {
             margin: 0 15px;
         }
+
         nav ul li a {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
             font-size: 17px;
         }
-        main{
+
+        main {
             max-width: 1200px;
             width: 100%;
             background-color: #1a1a1a;
@@ -59,30 +69,37 @@
             border-radius: 8px;
             box-shadow: 0 0 20px rgba(214, 127, 46, 0.3);
         }
+
         .logo {
             font-weight: bold;
             cursor: pointer;
             display: flex;
             align-items: center;
-            font-family: 'Gloock', serif; /* Gloock font */
+            font-family: 'Gloock', serif;
+            /* Gloock font */
             font-size: 40px;
 
         }
+
         .logo:before {
             content: "";
             display: block;
             width: 2px;
-            height: 50px; /* Longer line */
-            background-color:  white; 
+            height: 50px;
+            /* Longer line */
+            background-color: white;
             margin-right: 10px;
         }
+
         .logo span {
             font-size: 40px;
-            color:  white;
+            color: white;
         }
+
         .work {
-            color:  #d67f2e;
+            color: #d67f2e;
         }
+
         .my-work-section {
             text-align: center;
             margin: auto;
@@ -93,6 +110,7 @@
             border: 1px solid #d67f2e;
             box-shadow: 0 0 15px rgba(214, 127, 46, 0.2);
         }
+
         .my-work-section h1 {
             font-family: 'Gloock', serif;
             font-size: 45px;
@@ -102,11 +120,13 @@
             padding-bottom: 15px;
             margin-bottom: 20px;
         }
+
         .my-work-section p {
             font-family: 'Merriweather', serif;
             font-size: 18px;
             color: #ccc;
         }
+
         .work-item {
             display: flex;
             justify-content: space-between;
@@ -119,51 +139,70 @@
             box-shadow: 0 0 15px rgba(214, 127, 46, 0.3);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
+
         .work-item:hover {
             box-shadow: 0 0 25px rgba(214, 127, 46, 0.5);
             transform: translateY(-5px);
         }
-        .work-item h2{
-           font-size: 30px;
-           font-family: 'Fredericka the Great', cursive;
-           color: #d67f2e;
-           text-shadow: 0 0 5px #d67f2e;
+
+        .work-item h2 {
+            font-size: 30px;
+            font-family: 'Fredericka the Great', cursive;
+            color: #d67f2e;
+            text-shadow: 0 0 5px #d67f2e;
         }
+
         .work-item .text-content {
             flex: 1;
             text-align: left;
             padding-right: 20px;
         }
+
         .work-item .text-content p {
             color: #ccc;
             line-height: 1.6;
         }
+
         .work-item .image-content {
             flex: 1;
             text-align: right;
             width: 400px;
             height: 250px;
         }
+
         .work-item img {
-            max-width: 100%;
-            height: auto;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
             border-radius: 8px;
             border: 2px solid #d67f2e;
             box-shadow: 0 0 15px rgba(214, 127, 46, 0.3);
         }
+
         .github-icon {
             font-size: 24px;
             color: #d67f2e;
             margin-left: 10px;
             transition: color 0.3s, text-shadow 0.3s;
         }
+
         .github-icon:hover {
             color: #ff9a3c;
             text-shadow: 0 0 10px #d67f2e;
         }
+
         a {
-         text-decoration: none;
+            text-decoration: none;
         }
+        .work-item a {
+            color: #d67f2e;
+            text-decoration: underline;
+        }
+        .work-item a:visited {
+            color: #a91d1d;
+            text-decoration: none;
+        }
+
         footer {
             width: 100%;
             background-color: #000000;
@@ -172,11 +211,13 @@
             text-align: center;
             display: block;
         }
+
         footer a {
             color: #d67f2e;
             text-decoration: none;
             font-weight: bold;
         }
+
         footer a:hover {
             color: #fff;
         }
@@ -186,59 +227,75 @@
             header {
                 padding: 15px 0;
             }
+
             nav {
                 flex-direction: column;
                 gap: 15px;
             }
+
             nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
             }
+
             nav ul li {
                 margin: 5px 10px;
             }
+
             nav ul li a {
                 font-size: 14px;
             }
+
             .logo {
                 font-size: 30px;
             }
+
             .logo span {
                 font-size: 30px;
             }
+
             .logo:before {
                 height: 35px;
             }
+
             main {
                 padding: 15px;
                 margin-top: 20px;
             }
+
             .work-item {
                 flex-direction: column;
                 padding: 20px;
             }
+
             .work-item .text-content {
                 padding-right: 0;
                 padding-bottom: 20px;
             }
+
             .work-item .image-content {
                 width: 100%;
             }
+
             .my-work-section h1 {
                 font-size: 1.8em;
             }
+
             .work-item h2 {
                 font-size: 1.3em;
             }
+
             .work-item p {
                 font-size: 14px;
             }
+
             .work-item img {
                 max-width: 100%;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav>
@@ -257,44 +314,51 @@
         <section class="my-work-section">
             <h1>Things I am proud of</h1>
             <div class="work-content">
-                <p>Since I am constantly fiddling with something, this page solely reflects my best/latest accomplishments(highly subjective)</p>
-            </div>
-        </section>
-        <section class="my-work-section">
-            <div class="work-item">
-                <div class="text-content">
-                    <h2>Project SKR</h2>
-                    <p>Built the website you are currently browsing, in an effort to build my brand and brush up on my UI skills. It is currently being hosted by Github Pages and is rerouted to my domain
-                         <a href="http://sanjanakrao.com">sanjanakrao.com</p>
-                                    <!-- GitHub icon with link -->
-                    <a href="https://github.com/SanjanaKRao/SKR" target="_blank" class="github-icon" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i></a>
-                </div>
-                <div class="image-content">
-                    <img src="images/website.png" alt="Project XYZ Image">
-                </div>
+                <p>This page solely reflects my best work (highly subjective)</p>
             </div>
         </section>
         <section class="my-work-section">
             <div class="work-item">
                 <div class="text-content">
                     <h2>Foodnote</h2>
-                    <p>A web application that helps you discover and save your favorite recipes. Built with modern technologies to provide a seamless cooking experience.</p>
+                    <p>An iOS app to capture, organize, and remember my food experiences. 
+                         This is my pet project as I tend to travel a lot and wanted a lightweight app to store all of my dishes without
+                        the usual onboarding, upgrade-to-use, bloated UI that comes with most apps.
+                        Built with SwiftUI and powered by Google Maps and OpenAI API.</p>
                     <!-- GitHub icon with link -->
-                    <a href="https://github.com/SanjanaKRao/Foodnote" target="_blank" class="github-icon" rel="noopener noreferrer">
+                    <a href="https://github.com/SanjanaKRao/foodnote" target="_blank" class="github-icon"
+                        rel="noopener noreferrer">
                         <i class="fab fa-github"></i></a>
                 </div>
                 <div class="image-content">
-                    <img src="images/foodnote.png" alt="Foodnote Project Image">
+                    <img src="images/foodnote1.png" alt="Foodnote Project Image">
+                </div>
+            </div>
+        </section>
+        <section class="my-work-section">
+            <div class="work-item">
+                <div class="text-content">
+                    <h2>Project SKR</h2>
+                    <p>Built the website you are currently browsing.Tinkered with the scrollytelling experience. It is
+                        currently being hosted by Github Pages and is rerouted to my domain.</p>
+                    <a href="http://sanjanakrao.com">sanjanakrao.com</p>
+                        <!-- GitHub icon with link -->
+                        <a href="https://github.com/SanjanaKRao/SKR" target="_blank" class="github-icon"
+                            rel="noopener noreferrer">
+                            <i class="fab fa-github"></i></a>
+                </div>
+                <div class="image-content">
+                    <img src="images/Project_SKR.png" alt="Project SKR Image">
                 </div>
             </div>
         </section>
     </main>
     <footer>
-        <p>If you like my work, consider <a href="https://www.buymeacoffee.com/sanjanakrao" target="_blank">buying me a coffee</a>!</p>
+        <p>If you like my work, consider <a href="https://www.buymeacoffee.com/sanjanakrao" target="_blank">buying me a
+                coffee</a>!</p>
     </footer>
     <script>
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             var footer = document.querySelector('footer');
             if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
                 footer.style.display = 'block';
@@ -304,4 +368,5 @@
         });
     </script>
 </body>
+
 </html>

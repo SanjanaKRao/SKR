@@ -248,6 +248,8 @@
             .frame-container {
                 aspect-ratio: 4 / 5; /* slightly taller */
                 overflow: hidden;
+                margin-left: -50vw;
+                margin-right: -50vw;
             }
 
             .frame-container img {
@@ -292,12 +294,14 @@
                 padding: 10px 20px;
                 font-size: 12px;
             }
-            /* Disable hover on mobile to prevent double-tap */
+            /* Mobile hover effect - matches desktop */
             .view-my-work:hover {
                 background: none;
-                border: none;
-                box-shadow: none;
-                text-decoration: underline;
+                color: #fff;
+                border-color: #000000;
+                box-shadow: 0 0 10px #d67f2e, 0 0 20px #d67f2e, 0 0 40px #000000, 0 0 60px #ff6b00;
+                text-shadow: 0 0 10px #d67f2e, 0 0 20px #d67f2e, 0 0 40px #ff6b00, 0 0 60px #ff6b00;
+                text-decoration: none;
             }
         }
         /* Desktop: hide mobile image */
@@ -410,10 +414,12 @@
         if (isMobile) {
             viewMyWork.addEventListener('touchstart', function(e) {
                 e.preventDefault();
-                // Add hover effect immediately
-                viewMyWork.style.backgroundColor = '#000000';
-                viewMyWork.style.borderColor = '#ff9a3c';
-                viewMyWork.style.boxShadow = '0 0 10px #d67f2e, 0 0 20px #d67f2e, 0 0 40px #ff6b00, 0 0 60px #ff6b00';
+                // Add hover effect immediately - matches desktop
+                viewMyWork.style.background = 'none';
+                viewMyWork.style.color = '#fff';
+                viewMyWork.style.borderColor = '#000000';
+                viewMyWork.style.boxShadow = '0 0 10px #d67f2e, 0 0 20px #d67f2e, 0 0 40px #000000, 0 0 60px #ff6b00';
+                viewMyWork.style.textShadow = '0 0 10px #d67f2e, 0 0 20px #d67f2e, 0 0 40px #ff6b00, 0 0 60px #ff6b00';
                 viewMyWork.style.textDecoration = 'none';
 
                 // Navigate after brief delay to show the effect
