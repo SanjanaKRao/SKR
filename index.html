@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Fredericka+the+Great&display=swap');
         body {
@@ -70,6 +70,7 @@
             color: #fff;
             text-shadow: 0 0 10px #d67f2e, 0 0 20px #d67f2e;
             animation: pulse 2s infinite;
+            text-align: center;
         }
         @keyframes pulse {
             0%, 100% { opacity: 1; }
@@ -79,28 +80,34 @@
             opacity: 0;
             pointer-events: none;
         }
-        .download-cv {
+        .view-my-work {
             display: inline-block;
             margin-top: 10px;
             padding: 12px 30px;
-            background-color: #d67f2e;
+            background: none;
+            border: none;
             color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
+            text-decoration: underline;
             font-family: 'Gloock', serif;
             font-size: 14px;
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease, background-color 0.3s ease;
-            transition-delay: 1.2s;
+            transition: opacity 0.8s ease 1.2s, transform 0.8s ease 1.2s,
+                        background-color 0s ease, box-shadow 0s ease,
+                        text-shadow 0s ease, text-decoration 0s ease;
         }
-        .download-cv.visible {
+        .view-my-work.visible {
             opacity: 1;
             transform: translateY(0);
             pointer-events: auto;
         }
-        .download-cv:hover {
-            background-color: #b8691f;
+        .view-my-work:hover {
+            background-color: #000000;
+            color: #fff;
+            border-color: #ff9a3c;
+            box-shadow: 0 0 10px #d67f2e, 0 0 20px #d67f2e, 0 0 40px #ff6b00, 0 0 60px #ff6b00;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+            text-decoration: none;
         }
         .intro-overlay {
             position: fixed;
@@ -236,6 +243,24 @@
             .logo:before {
                 height: 35px;
             }
+            /* Portrait mode optimization */
+            .frame-container img {
+                object-fit: cover;
+            }
+            .intro-image img {
+                width: 100%;
+                height: 100vh;
+                object-fit: cover;
+            }
+            .intro-image .desktop-img {
+                display: none;
+            }
+            .intro-image .mobile-img {
+                display: block;
+            }
+            .intro-text {
+                top: 65%;
+            }
             .intro-overlay h1 {
                 font-size: 28px;
             }
@@ -245,10 +270,17 @@
             .intro-text .about {
                 font-size: 14px;
             }
-            .download-cv {
+            .view-my-work {
                 padding: 10px 20px;
                 font-size: 12px;
             }
+        }
+        /* Desktop: hide mobile image */
+        .intro-image .mobile-img {
+            display: none;
+        }
+        .intro-image .desktop-img {
+            display: block;
         }
     </style>
 </head>
@@ -276,13 +308,14 @@
         <div class="scroll-space"></div>
         <div class="intro-overlay" id="intro-overlay">
             <div class="intro-image">
-                <img src="images/lioness_landscape.png" alt="Sanjana K Rao">
+                <img class="desktop-img" src="images/lioness_landscape.png" alt="Sanjana K Rao">
+                <img class="mobile-img" src="images/lioness_portrait.png" alt="Sanjana K Rao">
             </div>
             <div class="intro-text">
                 <h1>SANJANA RAO</h1>
                 <p class="subtext">Senior Software Engineer</p>
                 <p class="about">In constant battle with my code.</p>
-                <a href="work.html" class="download-cv" id="download-cv">View my work</a>
+                <a href="work.html" class="view-my-work" id="view-my-work">View my work</a>
             </div>
         </div>
     </main>
@@ -305,10 +338,12 @@
 
         // Set scroll space height (adjust multiplier for scroll speed)
         const scrollSpace = document.querySelector('.scroll-space');
-        scrollSpace.style.height = (totalFrames * 10) + 'px';
+        const isMobile = window.innerWidth <= 768;
+        const scrollMultiplier = isMobile ? 5 : 10; // Faster scroll on mobile
+        scrollSpace.style.height = (totalFrames * scrollMultiplier) + 'px';
 
         const scrollWarning = document.getElementById('scroll-warning');
-        const downloadCV = document.getElementById('download-cv');
+        const downloadCV = document.getElementById('view-my-work');
         let warningHidden = false;
 
         window.addEventListener('scroll', function() {
