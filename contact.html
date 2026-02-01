@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="icon" href="/images/SKR.png" type="image/x-icon">
     <meta charset="UTF-8">
@@ -9,7 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Cormorant+Garamond:wght@300&display=swap');
+
         body {
+            background-image: url(images/flames_background.png);
             background-color: #0a0a0a;
             margin: 0;
             padding: 0;
@@ -17,13 +20,17 @@
             flex-direction: column;
             align-items: center;
         }
+
         header {
             font-size: 17px;
             width: 100%;
-            background-color: #000000; /* Jet black background */
+            background-color: #000000;
+            /* Jet black background */
             color: #fff;
-            padding: 30px 0; /* Increased padding for a wider header */
+            padding: 30px 0;
+            /* Increased padding for a wider header */
         }
+
         nav {
             display: flex;
             justify-content: space-between;
@@ -32,6 +39,7 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+
         main {
             max-width: 1200px;
             width: 100%;
@@ -42,52 +50,64 @@
             border: 1px solid #d67f2e;
             border-radius: 8px;
         }
+
         .logo {
             font-weight: bold;
             cursor: pointer;
             display: flex;
             align-items: center;
-            font-family: 'Gloock', serif; /* Gloock font */
+            font-family: 'Gloock', serif;
+            /* Gloock font */
             font-size: 40px;
         }
+
         .logo:before {
             content: "";
             display: block;
             width: 2px;
-            height: 50px; /* Longer line */
+            height: 50px;
+            /* Longer line */
             background-color: white;
             margin-right: 10px;
         }
+
         .logo span {
             font-size: 40px;
             color: white;
         }
+
         .contact {
             color: #d67f2e;
         }
+
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
             display: flex;
         }
+
         nav ul li {
             margin: 0 15px;
         }
+
         nav ul li a {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
             font-size: 17px;
         }
+
         a {
             text-decoration: none;
         }
+
         .contact-section {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
+
         .contact-section h1 {
             font-family: 'Gloock', serif;
             font-size: 2.5em;
@@ -97,19 +117,23 @@
             border-bottom: 2px solid #d67f2e;
             padding-bottom: 15px;
         }
+
         .contact-section p {
             color: #ccc;
         }
+
         .contact-form {
             width: 100%;
             max-width: 600px;
         }
+
         .contact-form label {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.2em;
             margin-bottom: 5px;
             color: #ccc;
         }
+
         .contact-form input,
         .contact-form textarea {
             width: 100%;
@@ -122,11 +146,13 @@
             background-color: #0f0f0f;
             color: #fff;
         }
+
         .contact-form input:focus,
         .contact-form textarea:focus {
             outline: none;
             box-shadow: 0 0 10px rgba(214, 127, 46, 0.5);
         }
+
         .contact-form button {
             background: none;
             border: 2px solid #d67f2e;
@@ -140,22 +166,26 @@
             text-shadow: 0 0 10px #d67f2e, 0 0 20px #d67f2e, 0 0 40px #ff6b00, 0 0 60px #ff6b00;
             transition: box-shadow 0.3s ease;
         }
+
         .contact-form button:hover {
             border: 2px solid #000000;
             background-color: #000000;
             box-shadow: 0 0 10px #d67f2e, 0 0 20px #d67f2e, 0 0 40px #000000, 0 0 60px #ff6b00;
         }
+
         .social-icons {
             display: flex;
             justify-content: center;
             margin-top: 20px;
         }
+
         .social-icons a {
             color: #d67f2e;
             margin: 0 10px;
             font-size: 2em;
             transition: color 0.3s, text-shadow 0.3s;
         }
+
         .social-icons a:hover {
             color: #ff9a3c;
             text-shadow: 0 0 10px #d67f2e;
@@ -166,56 +196,71 @@
             header {
                 padding: 15px 0;
             }
+
             nav {
                 flex-direction: column;
                 gap: 15px;
             }
+
             nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
             }
+
             nav ul li {
                 margin: 5px 10px;
             }
+
             nav ul li a {
                 font-size: 14px;
             }
+
             .logo {
                 font-size: 30px;
             }
+
             .logo span {
                 font-size: 30px;
             }
+
             .logo:before {
                 height: 35px;
             }
+
             main {
                 padding: 15px;
                 margin: 20px 10px;
             }
+
             .contact-section h1 {
                 font-size: 1.8em;
             }
+
             .contact-form {
                 padding: 0 10px;
             }
+
             .contact-form label {
                 font-size: 1em;
             }
+
             .contact-form input,
             .contact-form textarea {
                 font-size: 0.9em;
             }
+
             .contact-form button {
                 font-size: 1em;
                 width: 100%;
             }
+
             .social-icons a {
                 font-size: 1.5em;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav>
@@ -257,4 +302,5 @@
         </section>
     </main>
 </body>
+
 </html>
