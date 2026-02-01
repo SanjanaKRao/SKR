@@ -10,11 +10,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Cormorant+Garamond:wght@300&display=swap');
         body {
-            background-image: url('images/background.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-color: #0a0a0a;
             margin: 0;
             padding: 0;
             display: flex;
@@ -39,7 +35,10 @@
         main{
             max-width: 1200px;
             width: 100%;
-            background-color: white;
+            background-color: #1a1a1a;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(214, 127, 46, 0.3);
         }
         .logo {
             font-weight: bold;
@@ -83,7 +82,8 @@
         .experience-section {
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(214, 127, 46, 0.3);
+            border: 1px solid #d67f2e;
             border-radius: 8px;
             overflow: hidden;
             margin-top: 40px;
@@ -91,33 +91,41 @@
         .experience-item {
             display: flex;
             justify-content: flex-start;
-            margin-bottom: 0; /* Remove bottom margin */
+            margin-bottom: 0;
             padding: 20px;
             border-radius: 8px;
+            background-color: #0f0f0f;
+            border-bottom: 1px solid #d67f2e;
+        }
+        .experience-item:last-child {
+            border-bottom: none;
         }
         .experience-item:nth-child(odd) .right {
-            background-color: #F5DEB3; /* Tan background */
+            background-color: #1a1a1a;
         }
         .experience-item:nth-child(even) .right {
-            background-color: #F5DEB3; /* Wheat background */
+            background-color: #0f0f0f;
         }
         .experience-item .left {
             flex: 1;
             font-size: 18px;
-            color: #666;
+            color: #d67f2e;
             text-align: left;
             padding-right: 20px;
-            font-family: 'Merriweather', serif; /* Merriweather font */
+            font-family: 'Merriweather', serif;
+            font-weight: bold;
         }
         .experience-item .left p {
             margin: 0;
+            margin-bottom: 10px;
         }
         .experience-item .right {
             flex: 3;
             font-size: 18px;
-            color: #333;
+            color: #ccc;
             padding: 20px;
-            font-family: 'Merriweather', serif; /* Merriweather font */
+            font-family: 'Merriweather', serif;
+            border-radius: 8px;
         }
         .experience-item .right p {
             margin: 10px 0; /* Increased margin */
@@ -126,14 +134,14 @@
             padding-bottom: 20px;
         }
         .experience-item .right p::before {
-            content: "\f00c"; /* Square icon */
+            content: "\f00c";
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             position: absolute;
             left: 0;
             top:25%;
             transform: translateY(-50%);
-            color: #d6582e; /* Color for the icon */
+            color: #d67f2e;
         }
         a {
          text-decoration: none;

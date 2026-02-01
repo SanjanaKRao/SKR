@@ -10,11 +10,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Cormorant+Garamond:wght@300&display=swap');
         body {
-            background-image: url('images/background.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-color: #0a0a0a;
             margin: 0;
             padding: 0;
             display: flex;
@@ -39,10 +35,11 @@
         main {
             max-width: 1200px;
             width: 100%;
-            background-color: white;
+            background-color: #1a1a1a;
             padding: 20px;
             margin: 40px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(214, 127, 46, 0.3);
+            border: 1px solid #d67f2e;
             border-radius: 8px;
         }
         .logo {
@@ -95,6 +92,13 @@
             font-family: 'Gloock', serif;
             font-size: 2.5em;
             margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 0 0 10px #d67f2e;
+            border-bottom: 2px solid #d67f2e;
+            padding-bottom: 15px;
+        }
+        .contact-section p {
+            color: #ccc;
         }
         .contact-form {
             width: 100%;
@@ -104,30 +108,42 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.2em;
             margin-bottom: 5px;
+            color: #ccc;
         }
         .contact-form input,
         .contact-form textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
-            border: 1px solid #ccc;
+            border: 1px solid #d67f2e;
             border-radius: 4px;
             font-family: 'Cormorant Garamond', serif;
             font-size: 1em;
+            background-color: #0f0f0f;
+            color: #fff;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(214, 127, 46, 0.5);
         }
         .contact-form button {
-            background-color: #d67f2e;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2em;
+            background: none;
+            border: 2px solid #d67f2e;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Gloock', serif;
+            font-size: 14px;
+            padding: 12px 30px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            text-shadow: 0 0 10px #d67f2e, 0 0 20px #d67f2e, 0 0 40px #ff6b00, 0 0 60px #ff6b00;
+            transition: box-shadow 0.3s ease;
         }
         .contact-form button:hover {
-            background-color: #b65e20;
+            border: 2px solid #000000;
+            background-color: #000000;
+            box-shadow: 0 0 10px #d67f2e, 0 0 20px #d67f2e, 0 0 40px #000000, 0 0 60px #ff6b00;
         }
         .social-icons {
             display: flex;
@@ -135,13 +151,14 @@
             margin-top: 20px;
         }
         .social-icons a {
-            color: #000;
+            color: #d67f2e;
             margin: 0 10px;
             font-size: 2em;
-            transition: color 0.3s;
+            transition: color 0.3s, text-shadow 0.3s;
         }
         .social-icons a:hover {
-            color: #d67f2e;
+            color: #ff9a3c;
+            text-shadow: 0 0 10px #d67f2e;
         }
 
         /* Mobile Responsive */

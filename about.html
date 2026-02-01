@@ -9,11 +9,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Cormorant+Garamond&family=Merriweather:wght@300&display=swap');
         body {
-            background-image: url('images/background.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-color: #0a0a0a;
             margin: 0;
             padding: 0;
             display: flex;
@@ -78,8 +74,9 @@
         }
         .container {
             display: flex;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #0f0f0f;
+            box-shadow: 0 0 20px rgba(214, 127, 46, 0.3);
+            border: 1px solid #d67f2e;
             border-radius: 8px;
             overflow: hidden;
             max-width: 1200px;
@@ -88,7 +85,7 @@
         }
         .image {
             flex: 1;
-            background-color: #eee;
+            background-color: #000;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -107,34 +104,40 @@
         }
         .content h1 {
             margin: 0;
-            font-size: 45px; /* Increased font size */
-            font-family: 'Gloock', serif; /* Gloock font */
-            color: #333;
+            font-size: 45px;
+            font-family: 'Gloock', serif;
+            color: #d67f2e;
+            text-shadow: 0 0 10px #c30909;
         }
         .content .subtext {
             font-size: 22px;
-            color: #666;
-            font-family: 'Cormorant Garamond', serif; /* Cormorant Garamond Light font */
+            color: #ccc;
+            font-family: 'Cormorant Garamond', serif;
         }
         #about-me {
-            background-color: #fff;
+            background-color: #0f0f0f;
             padding: 60px 20px;
             margin-top: 40px;
+            margin-bottom: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(214, 127, 46, 0.3);
+            border: 1px solid #d67f2e;
             text-align: center;
             max-width: 800px;
             width: 100%;
         }
         #about-me h1 {
             font-size: 35px;
-            color: #333;
+            color: #fff;
+            text-shadow: 0 0 10px #d67f2e;
             margin-bottom: 20px;
+            border-bottom: 2px solid #d67f2e;
+            padding-bottom: 15px;
         }
         .about-content {
             line-height: 1.8;
             font-size: 15px;
-            color: #666;
+            color: #ccc;
             text-align: left;
         }
         .about-content p {
@@ -147,17 +150,18 @@
         .resume a {
             display: inline-block;
             padding: 12px 30px;
-            background-color: #d67f2e;
+            background: none;
+            border: 2px solid #d67f2e;
             color: #fff;
             text-decoration: none;
+            font-family: 'Gloock', serif;
+            font-size: 14px;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
-            border: 2px solid transparent; /* Initial border */
+            text-shadow: 0 0 10px #d67f2e, 0 0 20px #d67f2e, 0 0 40px #ff6b00, 0 0 60px #ff6b00;
+            transition: box-shadow 0.3s ease;
         }
         .resume a:hover {
-            background-color: white;
-            color: #d67f2e;
-            border-color: #d67f2e;
+            box-shadow: 0 0 10px #d67f2e, 0 0 20px #d67f2e, 0 0 40px #000000, 0 0 60px #ff6b00;
         }
         a {
          text-decoration: none;
@@ -246,7 +250,7 @@
     <main>
         <div class="container">
             <div class="image">
-                <img src="images/sanjanakrao.png" alt="Thats supposed to be an image of me - Sanjana K Rao">
+                <img src="images/about_image.png" alt="Thats supposed to be an image of me - Sanjana K Rao">
             </div>
             <div class="content">
                 <h1>Hey! I'm Sanjana K Rao.
