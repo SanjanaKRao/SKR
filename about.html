@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Cormorant+Garamond&family=Merriweather:wght@300&display=swap');
+        * {
+            box-sizing: border-box;
+        }
         body {
             background-color: #0a0a0a;
             margin: 0;
@@ -29,6 +32,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow-x: hidden;
         }
         header {
             font-size: 17px;
@@ -224,8 +228,17 @@
             .logo:before {
                 height: 35px;
             }
+            main {
+                margin: 0;
+                padding: 0;
+            }
             .container {
                 flex-direction: column;
+                margin: 20px 10px;
+                width: calc(100% - 20px);
+            }
+            .content {
+                padding: 20px;
             }
             .content h1 {
                 font-size: 28px;
@@ -235,7 +248,8 @@
             }
             #about-me {
                 padding: 30px 15px;
-                margin-top: 20px;
+                margin: 20px 10px;
+                width: calc(100% - 20px);
             }
             #about-me h1 {
                 font-size: 28px;
