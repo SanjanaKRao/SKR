@@ -20,14 +20,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sanjanakrao.com/work.html">
     <meta property="og:title" content="Work - Sanjana K Rao">
-    <meta property="og:description" content="Explore my projects including Foodnote, a browser-based Pokemon trivia game, and this portfolio website.">
+    <meta property="og:description" content="Explore my projects including Foodnote, a Pokemon game and a Treaure hunt">
     <meta property="og:image" content="https://sanjanakrao.com/images/lioness_og.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://sanjanakrao.com/work.html">
     <meta property="twitter:title" content="Work - Sanjana K Rao">
-    <meta property="twitter:description" content="Explore my projects including Foodnote, a browser-based Pokemon trivia game, and this portfolio website.">
+    <meta property="twitter:description" content="Explore my projects including Foodnote, a Pokemon game and a Treaure hunt">
     <meta property="twitter:image" content="https://sanjanakrao.com/images/lioness_landscape.png">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -202,6 +202,43 @@
             box-shadow: 0 0 15px rgba(214, 127, 46, 0.3);
         }
 
+        .treasure-hunt-visual {
+            width: 80%;
+            height: 190px;
+            margin-left: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: #fff4d8;
+            background:
+                radial-gradient(circle at 70% 30%, rgba(255, 215, 112, 0.22), transparent 22%),
+                linear-gradient(135deg, #243b2b, #102319 60%, #07120c);
+            border: 2px solid #d67f2e;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(214, 127, 46, 0.3);
+            text-align: center;
+        }
+
+        .treasure-hunt-visual i {
+            font-size: 58px;
+            color: #f2bb51;
+            text-shadow: 0 0 18px rgba(242, 187, 81, 0.7);
+        }
+
+        .treasure-hunt-visual span {
+            font-family: 'Fredericka the Great', cursive;
+            font-size: 28px;
+            letter-spacing: 1px;
+        }
+
+        .treasure-hunt-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
         .github-icon {
             font-size: 24px;
             color: #d67f2e;
@@ -338,6 +375,20 @@
             <h1>Things I am proud of</h1>
             <div class="work-content">
                 <p>This page solely reflects my best work (highly subjective)</p>
+            </div>
+        </section>
+        <section class="my-work-section">
+            <div class="work-item">
+                <div class="text-content">
+                    <h2>Happy Hunting</h2>
+                    <p>An interactive treasure-hunt experience I built as a birthday surprise for the hubs. Follow the clues, uncover the next stop, and enjoy the adventure along the way.</p>
+                    <p><a href="https://happyhunting.onrender.com/" target="_blank" rel="noopener noreferrer">Start the hunt</a></p>
+                </div>
+                <div class="image-content">
+                    <div class="treasure-hunt-visual" role="img" aria-label="Happy Hunting treasure hunt">
+                        <img src="images/treasure_hunt.png" alt="Treasure Hunt Image">
+                    </div>
+                </div>
             </div>
         </section>
         <section class="my-work-section">
