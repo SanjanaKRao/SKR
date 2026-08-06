@@ -259,6 +259,30 @@
             cursor: pointer;
         }
 
+        .video-preview .video-fullscreen-button {
+            position: absolute;
+            right: 16px;
+            bottom: 31px;
+            z-index: 1;
+            display: grid;
+            width: 32px;
+            height: 32px;
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            border-radius: 6px;
+            background: rgba(0, 0, 0, 0.62);
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .video-preview .video-fullscreen-button:hover,
+        .video-preview .video-fullscreen-button:focus-visible {
+            transform: scale(1.08);
+            border-color: #f0a354;
+            background: #d67f2e;
+        }
+
         .treasure-hunt-visual {
             width: 80%;
             height: 190px;
@@ -455,6 +479,7 @@
                             Your browser does not support this video.
                         </video>
                         <button class="video-play-button" type="button" aria-label="Play Happy Hunting preview">&#9658;</button>
+                        <button class="video-fullscreen-button" type="button" aria-label="View Happy Hunting preview fullscreen"><i class="fa-solid fa-expand" aria-hidden="true"></i></button>
                         <input class="video-seek" type="range" min="0" value="0" step="0.1" aria-label="Video progress" disabled>
                     </div>
                 </div>
@@ -480,6 +505,7 @@
                             Your browser does not support this video.
                         </video>
                         <button class="video-play-button" type="button" aria-label="Play Foodnote preview">&#9658;</button>
+                        <button class="video-fullscreen-button" type="button" aria-label="View Foodnote preview fullscreen"><i class="fa-solid fa-expand" aria-hidden="true"></i></button>
                         <input class="video-seek" type="range" min="0" value="0" step="0.1" aria-label="Video progress" disabled>
                     </div>
                 </div>
@@ -502,6 +528,7 @@
                             Your browser does not support this video.
                         </video>
                         <button class="video-play-button" type="button" aria-label="Play Pokemon game preview">&#9658;</button>
+                        <button class="video-fullscreen-button" type="button" aria-label="View Pokemon game preview fullscreen"><i class="fa-solid fa-expand" aria-hidden="true"></i></button>
                         <input class="video-seek" type="range" min="0" value="0" step="0.1" aria-label="Video progress" disabled>
                     </div>
                 </div>
@@ -525,6 +552,7 @@
                             Your browser does not support this video.
                         </video>
                         <button class="video-play-button" type="button" aria-label="Play Project SKR preview">&#9658;</button>
+                        <button class="video-fullscreen-button" type="button" aria-label="View Project SKR preview fullscreen"><i class="fa-solid fa-expand" aria-hidden="true"></i></button>
                         <input class="video-seek" type="range" min="0" value="0" step="0.1" aria-label="Video progress" disabled>
                     </div>
                 </div>
@@ -549,6 +577,7 @@
             var video = preview.querySelector('video');
             var button = preview.querySelector('.video-play-button');
             var seek = preview.querySelector('.video-seek');
+            var fullscreenButton = preview.querySelector('.video-fullscreen-button');
 
             button.addEventListener('click', function () {
                 video.play();
@@ -586,6 +615,14 @@
 
             seek.addEventListener('input', function () {
                 video.currentTime = seek.value;
+            });
+
+            fullscreenButton.addEventListener('click', function () {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitEnterFullscreen) {
+                    video.webkitEnterFullscreen();
+                }
             });
         });
     </script>
