@@ -81,7 +81,7 @@
         }
 
         main {
-            max-width: 1200px;
+            max-width: 1400px;
             width: 100%;
             background-color: #1a1a1a;
             padding: 20px;
@@ -193,13 +193,70 @@
             height: 250px;
         }
 
-        .work-item img {
+        .work-item img,
+        .work-item video {
             width: 100%;
             height: 250px;
             object-fit: cover;
             border-radius: 8px;
             border: 2px solid #d67f2e;
             box-shadow: 0 0 15px rgba(214, 127, 46, 0.3);
+        }
+
+        .video-preview {
+            position: relative;
+            width: 100%;
+            height: 250px;
+        }
+
+        .work-item .project-video-content {
+            flex: 1.25;
+            width: 620px;
+            height: 340px;
+        }
+
+        .project-video-content .video-preview,
+        .project-video-content video {
+            height: 340px;
+        }
+
+        .video-preview .video-play-button {
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            width: 64px;
+            height: 64px;
+            transform: translate(-50%, -50%);
+            border: 2px solid #fff;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.65);
+            color: #fff;
+            font-size: 26px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .video-preview .video-play-button:hover,
+        .video-preview .video-play-button:focus-visible {
+            background: #d67f2e;
+            transform: translate(-50%, -50%) scale(1.08);
+        }
+
+        .video-preview.is-playing .video-play-button {
+            display: none;
+        }
+
+        .video-preview .video-seek {
+            position: absolute;
+            right: 16px;
+            bottom: 14px;
+            left: 16px;
+            z-index: 1;
+            width: calc(100% - 32px);
+            margin: 0;
+            accent-color: #d67f2e;
+            cursor: pointer;
         }
 
         .treasure-hunt-visual {
@@ -337,6 +394,12 @@
                 width: 100%;
             }
 
+            .work-item .project-video-content,
+            .project-video-content .video-preview,
+            .project-video-content video {
+                height: 250px;
+            }
+
             .my-work-section h1 {
                 font-size: 1.8em;
             }
@@ -349,7 +412,8 @@
                 font-size: 14px;
             }
 
-            .work-item img {
+            .work-item img,
+            .work-item video {
                 max-width: 100%;
             }
         }
@@ -384,9 +448,14 @@
                     <p>An interactive treasure-hunt experience I built as a birthday surprise for the hubs. Follow the clues, uncover the next stop, and enjoy the adventure along the way.</p>
                     <p><a href="https://happyhunting.onrender.com/" target="_blank" rel="noopener noreferrer">Start the hunt</a></p>
                 </div>
-                <div class="image-content">
-                    <div class="treasure-hunt-visual" role="img" aria-label="Happy Hunting treasure hunt">
-                        <img src="images/treasure_hunt.png" alt="Treasure Hunt Image">
+                <div class="image-content project-video-content">
+                    <div class="video-preview">
+                        <video playsinline poster="images/treasure_hunt.png" aria-label="Happy Hunting preview">
+                            <source src="images/hunting_run_through.mp4" type="video/mp4">
+                            Your browser does not support this video.
+                        </video>
+                        <button class="video-play-button" type="button" aria-label="Play Happy Hunting preview">&#9658;</button>
+                        <input class="video-seek" type="range" min="0" value="0" step="0.1" aria-label="Video progress" disabled>
                     </div>
                 </div>
             </div>
@@ -404,8 +473,15 @@
                         rel="noopener noreferrer">
                         <i class="fab fa-github"></i></a>
                 </div>
-                <div class="image-content">
-                    <img src="images/foodnote1.png" alt="Foodnote Project Image">
+                <div class="image-content project-video-content">
+                    <div class="video-preview">
+                        <video playsinline poster="images/foodnote1.png" aria-label="Foodnote preview">
+                            <source src="images/foodnote_run_through.mp4" type="video/mp4">
+                            Your browser does not support this video.
+                        </video>
+                        <button class="video-play-button" type="button" aria-label="Play Foodnote preview">&#9658;</button>
+                        <input class="video-seek" type="range" min="0" value="0" step="0.1" aria-label="Video progress" disabled>
+                    </div>
                 </div>
             </div>
         </section>
@@ -419,8 +495,15 @@
                         rel="noopener noreferrer">
                         <i class="fab fa-github"></i></a>
                 </div>
-                <div class="image-content">
-                    <img src="images/pokemon_project.png" alt="Pokemon Game Image">
+                <div class="image-content project-video-content">
+                    <div class="video-preview">
+                        <video playsinline poster="images/pokemon_project.png" aria-label="Pokemon game preview">
+                            <source src="images/pokemon_run_through.mp4" type="video/mp4">
+                            Your browser does not support this video.
+                        </video>
+                        <button class="video-play-button" type="button" aria-label="Play Pokemon game preview">&#9658;</button>
+                        <input class="video-seek" type="range" min="0" value="0" step="0.1" aria-label="Video progress" disabled>
+                    </div>
                 </div>
             </div>
         </section>
@@ -435,8 +518,15 @@
                         rel="noopener noreferrer">
                         <i class="fab fa-github"></i></a>
                 </div>
-                <div class="image-content">
-                    <img src="images/Project_SKR.png" alt="Project SKR Image">
+                <div class="image-content project-video-content">
+                    <div class="video-preview">
+                        <video playsinline poster="images/Project_SKR.png" aria-label="Project SKR preview">
+                            <source src="images/skr_run_through.mp4" type="video/mp4">
+                            Your browser does not support this video.
+                        </video>
+                        <button class="video-play-button" type="button" aria-label="Play Project SKR preview">&#9658;</button>
+                        <input class="video-seek" type="range" min="0" value="0" step="0.1" aria-label="Video progress" disabled>
+                    </div>
                 </div>
             </div>
         </section>
@@ -453,6 +543,50 @@
             } else {
                 footer.style.display = 'block';
             }
+        });
+
+        document.querySelectorAll('.video-preview').forEach(function (preview) {
+            var video = preview.querySelector('video');
+            var button = preview.querySelector('.video-play-button');
+            var seek = preview.querySelector('.video-seek');
+
+            button.addEventListener('click', function () {
+                video.play();
+            });
+
+            video.addEventListener('click', function () {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+
+            video.addEventListener('play', function () {
+                preview.classList.add('is-playing');
+            });
+
+            video.addEventListener('pause', function () {
+                preview.classList.remove('is-playing');
+            });
+
+            video.addEventListener('ended', function () {
+                preview.classList.remove('is-playing');
+                video.load();
+            });
+
+            video.addEventListener('loadedmetadata', function () {
+                seek.max = video.duration;
+                seek.disabled = false;
+            });
+
+            video.addEventListener('timeupdate', function () {
+                seek.value = video.currentTime;
+            });
+
+            seek.addEventListener('input', function () {
+                video.currentTime = seek.value;
+            });
         });
     </script>
     <script src="js/tracking.js"></script>
